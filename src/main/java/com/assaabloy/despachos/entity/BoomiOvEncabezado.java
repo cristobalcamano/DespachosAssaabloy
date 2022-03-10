@@ -14,7 +14,7 @@ public class BoomiOvEncabezado implements Serializable {
     @Column(name = "Id_EncabezadoOV_Ods")
     private Integer iDEncabezadoOVOds;
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "PedidoId")
+    @Column(name = "PedidoId",unique=true)
     private String pedidoId;
     @Column(name = "VendidoA")
     private String vendidoA;

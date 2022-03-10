@@ -43,8 +43,9 @@ public class BoomiCuenta implements Serializable {
     private String razonComercial;
     @Column(name = "Departamento")
     private String departamento;
+    /* No sabemos que tipo de dato es ImpIncluido*/
     @Column(name = "ImpIncluido")
-    private impIncluido;
+    private String impIncluido;
     @Column(name = "UsoImp")
     private String usoImp;
     @Column(name = "ZonaImp")
@@ -69,14 +70,16 @@ public class BoomiCuenta implements Serializable {
     private String cuentaCXCPrincipal;
     @Column(name = "CuentaCXCAlterna")
     private String cuentaCXCAlterna;
+    /* No sabemos que tipo de dato es cupoCreditoDisponible se coloco String pero es un currency*/
     @Column(name = "CupoCreditoDisponible")
-    private  cupoCreditoDisponible;
+    private  String  cupoCreditoDisponible;
     @Column(name = "CobrarA")
     private String cobrarA;
     @Column(name = "Canal")
     private String canal;
+    /* No sabemos que tipo de dato es cupoCreditoDisponible se coloc String pero es un Logi*/
     @Column(name = "RetencionDeCredito")
-    private  retencionCredito;
+    private String retencionCredito;
     @Column(name = "MontoDeCredito")
     private BigDecimal montoCredito;
     @Column(name = "UltimaRevisionDeCredito")

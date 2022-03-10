@@ -10,9 +10,8 @@ public class Pedidos  implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "ID")
-    private Integer id;
+    private String id;
     @Column(name = "orden_pedido")
     private String ordenPedido;
     @Column(name = "orden_venta")
@@ -21,25 +20,31 @@ public class Pedidos  implements Serializable {
     private Integer factura;
     @Column(name = "referencia_compra")
     private String referenciaCompra;
+    @Column(name = "canal_origen_compra")
+    private  String canalOrigenCompra;
+    @Column(name = "estado_pedido")
+    private String estadoPedido;
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
 
     public Pedidos() {
     }
 
-    public Pedidos(String ordenPedido, String ordenVenta, Integer factura, String referenciaCompra, Date fechaCreacion) {
+    public Pedidos(String ordenPedido, String ordenVenta, Integer factura, String referenciaCompra, String canalOrigenCompra, String estadoPedido, Date fechaCreacion) {
         this.ordenPedido = ordenPedido;
         this.ordenVenta = ordenVenta;
         this.factura = factura;
         this.referenciaCompra = referenciaCompra;
+        this.canalOrigenCompra = canalOrigenCompra;
+        this.estadoPedido = estadoPedido;
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -83,6 +88,22 @@ public class Pedidos  implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public String getCanalOrigenCompra() {
+        return canalOrigenCompra;
+    }
+
+    public void setCanalOrigenCompra(String canalOrigenCompra) {
+        this.canalOrigenCompra = canalOrigenCompra;
+    }
+
+    public String getEstadoPedido() {
+        return estadoPedido;
+    }
+
+    public void setEstadoPedido(String estadoPedido) {
+        this.estadoPedido = estadoPedido;
+    }
+
     @Override
     public String toString() {
         return "Pedidos{" +
@@ -91,6 +112,8 @@ public class Pedidos  implements Serializable {
                 ", ordenVenta='" + ordenVenta + '\'' +
                 ", factura=" + factura +
                 ", referenciaCompra='" + referenciaCompra + '\'' +
+                ", canalOrigenCompra='" + canalOrigenCompra + '\'' +
+                ", estadoPedido='" + estadoPedido + '\'' +
                 ", fechaCreacion=" + fechaCreacion +
                 '}';
     }

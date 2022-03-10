@@ -1,8 +1,6 @@
 package com.assaabloy.despachos.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -11,6 +9,8 @@ import java.time.LocalDateTime;
 @Table(name = "Boomi_OvDetalle")
 public class BoomiOvDetalle implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "IdPedidoDet")
     private String idPedidoDet;
     @Column(name = "OrdenDeVenta")
