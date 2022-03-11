@@ -6,6 +6,7 @@ public final class ConstantesGlobales {
     public final static String NO_SOLICITADO = "No solicitado";
     public final static String NO_ALISTADO = "No alistado";
     public final static String CREDO_EN_OV = "Creada en OV";
+    public final static String LISTO_PARA_DESPACHAR = "Listo para despachar";
 
 
     /* Constantes Consumir Api rest */

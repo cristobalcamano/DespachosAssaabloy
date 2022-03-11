@@ -34,8 +34,8 @@ public class PedidosServicesImpl implements PedidosServices {
     @Override
     public PedidoDto getPedido(String refCompra, String canalCompra) throws Exception {
 
-        if (refCompra == null || refCompra.equalsIgnoreCase("") ||
-                canalCompra == null || canalCompra.equalsIgnoreCase("")) {
+        if (refCompra == null || refCompra.equalsIgnoreCase("")
+                || canalCompra == null || canalCompra.equalsIgnoreCase("")) {
             throw new Exception("Debe enviar la referencia de compra y el canal de compra");
         }
 
@@ -80,7 +80,7 @@ public class PedidosServicesImpl implements PedidosServices {
     @Override
     public PedidoDto getPedidoId(String idPedido) throws Exception {
         Pedidos pedido = pedidosRepository.findById(idPedido).orElse(null);
-        RespuestaDto respuestaDto=new RespuestaDto();
+        RespuestaDto respuestaDto = new RespuestaDto();
         PedidoDto respuesta = new PedidoDto();
         if (pedido == null) {
             respuestaDto.setMensaje("El Pedido no se encuentra");
@@ -105,7 +105,7 @@ public class PedidosServicesImpl implements PedidosServices {
         } else {
             pedido.setEstadoPedido(estadoPedido);
             pedidosActualizado = pedidosRepository.save(pedido);
-            if (pedidosActualizado.getEstadoPedido().equalsIgnoreCase(ConstantesGlobales.CREDO_EN_OV)) {
+            if (pedidosActualizado.getEstadoPedido().equalsIgnoreCase(ConstantesGlobales.LISTO_PARA_DESPACHAR)) {
                 envioDto.setIdPedido(pedidosActualizado.getId());
                 envioDto.setLugarEnvio("Bogota");
                 envioDto.setTransportadora("sur");
