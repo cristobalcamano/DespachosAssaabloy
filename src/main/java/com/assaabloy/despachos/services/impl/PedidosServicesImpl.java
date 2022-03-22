@@ -10,6 +10,8 @@ import com.assaabloy.despachos.utility.ConstantesGlobales;
 import com.assaabloy.despachos.utility.ConsumirRest;
 import com.assaabloy.despachos.utility.TransObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -120,4 +122,11 @@ public class PedidosServicesImpl implements PedidosServices {
 
         return respuesta;
     }
+
+    @Override
+    public Page<Pedidos> consultar(Pageable pageable) throws Exception {
+        return pedidosRepository.consultarPedidod(pageable);
+    }
+
+
 }

@@ -2,7 +2,9 @@ package com.assaabloy.despachos.rest;
 
 import com.assaabloy.despachos.entity.Pedidos;
 import com.assaabloy.despachos.services.PedidosServices;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +18,19 @@ public class PedidosRest {
     private PedidosServices pedidosServices;
 
     @GetMapping("")
-    public ResponseEntity<?> ListarPedidos(){
+    public ResponseEntity<?> ListarPedidos(Pageable pageble){
         try {
-            return new ResponseEntity<>(pedidosServices.listaPedidos(), HttpStatus.OK);
+            return new ResponseEntity<>(pedidosServices.consultar(pageble), HttpStatus.OK);
         } catch (Exception error){
             return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
         }
     }
+	/*
+	 * @GetMapping("") public ResponseEntity<?> paginadorPedidos(Pageable pageable){
+	 * try { return new ResponseEntity<>(pedidosServices.consultar(pageable),
+	 * HttpStatus.OK); } catch (Exception error){ return new
+	 * ResponseEntity<>("Error", HttpStatus.BAD_REQUEST); } }
+	 */
 
     @GetMapping("ref-compra/{referencia-compra}/compra-canal/{canal-compra}")
     public ResponseEntity<?>VerificarPedido(@PathVariable(name = "referencia-compra") String referenciaCompra,
